@@ -18,7 +18,7 @@ $FavsImport = Import-Csv -Path (Join-Path -Path $location -ChildPath 'ManagedFav
 $rootfolder = Join-Path -Path $location -ChildPath $favrootname
 #remove existing folder, if it exists, to start fresh
 if (Test-Path $rootfolder) {Remove-Item -Path $rootfolder -Recurse}
-#not create a new folder!
+#now create a new folder!
 if (!(Test-Path -Path $rootfolder)) {New-Item -Path $rootfolder -ItemType Directory}
 
 #Create IE shortcuts (which Edge will also use)
