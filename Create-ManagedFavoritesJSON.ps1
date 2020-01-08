@@ -9,7 +9,7 @@
 }
 
 $location = split-path -parent $MyInvocation.MyCommand.Definition
-$favrootname = "Arcadis Links"
+$favrootname = "My Company Links"
 
 #get csv file
 $FavsImport = Import-Csv -Path (Join-Path -Path $location -ChildPath 'ManagedFavorites.csv')
@@ -78,7 +78,3 @@ foreach ($foldername in $folders)
 $favourites = $jsonBase | ConvertTo-Json -Depth 100
 
 Set-Content -Path (Join-Path -Path $rootfolder -ChildPath 'ManagedFavourites.json') -Value $favourites
-
-#Set-ItemProperty -Path HKCU:\Software\Policies\Microsoft\Edge -Name ManagedFavorites -Value ($jsonBase | ConvertTo-Json -Depth 100)
-#Set-ItemProperty -Path HKCU:\Software\Policies\Google\Chrome -Name ManagedBookmarks -Value ($jsonBase | ConvertTo-Json -Depth 100) 
-#Set-ItemProperty -Path HKCU:\Software\Policies\Microsoft\Edge -Name ManagedFavorites -Value (Get-Content -Path (Join-Path -Path $rootfolder -ChildPath 'ManagedFavourites.json'))
